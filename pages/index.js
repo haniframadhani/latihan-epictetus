@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Card from '../components/Card';
 
-export default function Home() {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+export default function Home({ blogs, authors }) {
+  console.log({ authors })
   return (
     <>
       <Head>
@@ -13,10 +13,31 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="px-10 sm:px-20 md:px-28 lg:px-44 scroll-smooth py-10 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-14">
-        {arr.map(e => {
-          return <Card angka={e}></Card>
+        {blogs.map(blog => {
+          let temp = null;
+          authors.map(author => {
+            if (blog["id-author"] === author.id) {
+              temp = author;
+            }
+            return temp;
+          })
+          let blogAndAuthor = { ...blog, ...temp };
+          return <Card key={blog["id-post"]} blog={blogAndAuthor}></Card>
         })}
       </div>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const responseBlogs = await fetch('http://localhost:3001/posts');
+  const dataBlogs = await responseBlogs.json();
+  const responseAuthors = await fetch('http://localhost:3001/authors');
+  const dataAuthors = await responseAuthors.json();
+  return {
+    props: {
+      blogs: dataBlogs,
+      authors: dataAuthors,
+    }
+  }
 }
