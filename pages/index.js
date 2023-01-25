@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Card from '../components/Card';
 
 export default function Home({ blogs, authors }) {
-  console.log({ authors })
   return (
     <>
       <Head>
@@ -13,23 +12,25 @@ export default function Home({ blogs, authors }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="px-10 sm:px-20 md:px-28 lg:px-44 scroll-smooth py-10 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-14">
-        {blogs.map(blog => {
-          let temp = null;
-          authors.map(author => {
-            if (blog["id-author"] === author.id) {
-              temp = author;
-            }
-            return temp;
+        {
+          blogs.map((blog, index) => {
+            let au = null;
+            authors.map(author => {
+              if (blog["id-author"] === author.id) {
+                au = author;
+              }
+              return au;
+            })
+            return <Card key={index} blog={blog} author={au} index={index}></Card>
           })
-          let blogAndAuthor = { ...blog, ...temp };
-          return <Card key={blog["id-post"]} blog={blogAndAuthor}></Card>
-        })}
+        }
       </div>
     </>
   )
 }
 
 export async function getServerSideProps() {
+  console.log("generating / regenerating articles list")
   const responseBlogs = await fetch('http://localhost:3001/posts');
   const dataBlogs = await responseBlogs.json();
   const responseAuthors = await fetch('http://localhost:3001/authors');
