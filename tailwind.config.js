@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'patrick-hand': ['Patrick Hand', 'cursive'],
-        'source-sans-pro': ['Source Sans Pro', 'sans-serif']
+        'ph': ['Patrick Hand', 'cursive'],
+        'ssp': ['Source Sans Pro', 'sans-serif']
       },
       colors: {
         'charcoal': '#374151',

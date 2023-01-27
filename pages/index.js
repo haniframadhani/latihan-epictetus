@@ -21,7 +21,7 @@ export default function Home({ blogs, authors }) {
               }
               return au;
             })
-            return <Card key={index} blog={blog} author={au} index={index}></Card>
+            return <Card key={blog["id-post"]} blog={blog} author={au} index={index}></Card>
           })
         }
       </div>
@@ -30,7 +30,6 @@ export default function Home({ blogs, authors }) {
 }
 
 export async function getServerSideProps() {
-  console.log("generating / regenerating articles list")
   const responseBlogs = await fetch('http://localhost:3001/posts');
   const dataBlogs = await responseBlogs.json();
   const responseAuthors = await fetch('http://localhost:3001/authors');
