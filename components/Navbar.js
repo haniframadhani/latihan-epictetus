@@ -9,7 +9,7 @@ export default function Navbar() {
     setNavbarOpen(!navbarOpen)
   }
   return (
-    <header className="flex flex-row justify-around md:justify-between text-xl items-center text-white w-max-screen py-9 md:px-28 lg:py-12 lg:px-44 top-0 sticky">
+    <header className="flex flex-row justify-around md:justify-between text-xl items-center text-white w-max-screen py-9 md:px-28 lg:py-12 lg:px-44 backdrop-blur-lg  top-0 sticky">
       <div onClick={handleIcon} className="lg:hidden text-white/60 cursor-pointer w-7 h-7 z-10 ">
         <div className={`h-0.5 bg-white rounded-3xl my-1.5 transition ease-linear w-full ${navbarOpen ? '-rotate-45 translate-y-2' : ''}`}></div>
         <div className={`h-0.5 bg-white rounded-3xl my-1.5 transition ease-linear w-full ${navbarOpen ? 'opacity-0' : ''}`}></div>

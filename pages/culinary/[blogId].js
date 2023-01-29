@@ -1,23 +1,31 @@
 import { DateTime } from 'luxon';
+import Head from 'next/head';
 
 export default function Article({ article, author }) {
   const time = DateTime.fromISO(article["post-date"]);
   const waktu = time.setLocale('en').toLocaleString(DateTime.DATE_FULL);
-  console.log(author)
   return (
-    <article className="px-10 sm:px-20 md:px-28 lg:px-44 scroll-smooth py-10 text-white grid grid-col-1 place-items-center">
-      <p className="text-white/60 text-sm leading-none mb-2.5">{article.category} &bull; {waktu}</p>
-      <h1 className='text-2xl leading-9 text-center mb-8'>{article.title}</h1>
-      <div className="flex flex-row items-center gap-4 mb-7">
-        <img className="w-12 rounded-full" src={author.image} alt="" />
-        <div>
-          <h3 className="capitalize text-base leading-7">{author.name}</h3>
-          <p className="capitalize text-white/60 text-sm leading-7">{author.title}</p>
+    <>
+      <Head>
+        <title>{article.title} | Epictetus</title>
+        <meta name="description" content="personal blog" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <article className="px-10 sm:px-20 md:px-28 lg:px-44 scroll-smooth py-10 text-white grid grid-col-1 place-items-center">
+        <p className="text-white/60 text-sm leading-none mb-2.5">{article.category} &bull; {waktu}</p>
+        <h1 className='text-2xl leading-9 text-center mb-8'>{article.title}</h1>
+        <div className="flex flex-row items-center gap-4 mb-7">
+          <img className="w-12 rounded-full" src={author.image} alt="" />
+          <div>
+            <h3 className="capitalize text-base leading-7">{author.name}</h3>
+            <p className="capitalize text-white/60 text-sm leading-7">{author.title}</p>
+          </div>
         </div>
-      </div>
-      <img className='w-full rounded mb-16' src={article.image} />
-      <div className='text-base leading-7 lg:px-24 flex flex-col gap-7' dangerouslySetInnerHTML={{ __html: article.body }}></div>
-    </article>
+        <img className='w-full rounded mb-16' src={article.image} />
+        <div className='text-base leading-7 lg:px-24 flex flex-col gap-7' dangerouslySetInnerHTML={{ __html: article.body }}></div>
+      </article>
+    </>
   )
 }
 

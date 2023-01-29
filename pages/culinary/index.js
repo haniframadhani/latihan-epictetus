@@ -1,20 +1,29 @@
+import Head from 'next/head';
 import Card from '../../components/Card';
 export default function Culinary({ blogs, authors }) {
   return (
-    <div className="px-10 sm:px-20 md:px-28 lg:px-44 scroll-smooth py-10 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-14">
-      {
-        blogs.map(blog => {
-          let au = null;
-          authors.map(author => {
-            if (blog["id-author"] === author.id) {
-              au = author;
-            }
-            return au;
+    <>
+      <Head>
+        <title>{blogs[0]["category"]} | Epictetus</title>
+        <meta name="description" content="personal blog" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="px-10 sm:px-20 md:px-28 lg:px-44 scroll-smooth py-10 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-14">
+        {
+          blogs.map(blog => {
+            let au = null;
+            authors.map(author => {
+              if (blog["id-author"] === author.id) {
+                au = author;
+              }
+              return au;
+            })
+            return <Card key={blog["id-post"]} blog={blog} author={au} index={null}></Card>
           })
-          return <Card key={blog["id-post"]} blog={blog} author={au} index={null}></Card>
-        })
-      }
-    </div>
+        }
+      </div>
+    </>
   )
 }
 export async function getServerSideProps() {
