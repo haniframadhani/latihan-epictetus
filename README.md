@@ -1,34 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Epictetus
+Epictetus adalah platform blogging modern dan bergaya yang menampilkan desain gelap. Halaman beranda menampilkan satu posting berfitur besar di bagian atas, dengan kotak artikel yang lebih kecil di bawahnya. Menavigasi ke halaman lain, seperti halaman pencarian atau halaman artikel tunggal, memberi pengguna pengalaman yang mulus dan intuitif. Dengan tampilannya yang ramping dan desain yang ramah pengguna, Epictetus pasti akan menjadi hit di kalangan blogger dan pembaca.
 
-First, run the development server:
+Epictetus adalah sebuah blog untuk latihan frontend yang disedia oleh [code the design](https://codedesign.dev/) sebagai latihan untuk frontend developer mengasah kemampuan frontend mereka. [code the design](https://codedesign.dev/) diciptakan oleh [@nauvalazhar](https://github.com/nauvalazhar) yang dipromosikan melalui channel youtube mereka [array id](https://www.youtube.com/@arrayid).
+## Authors
 
+- [@nauvalazhar](https://github.com/nauvalazhar)
+- [@haniframadhani](https://github.com/haniframadhani)
+
+
+## Installation
+langkah instalasi epictetus di mesin lokal
+
+1. clone repo `latihan-epictetus`
+```bash
+  git clone https://github.com/haniframadhani/latihan-epictetus.git
+```
+atau dapat didownload dengan menekan tombol `code` dan pilih `Download ZIP`
+
+2. buka folder `latihan-epitetus`
+```bash
+  cd latihan-epictetus
+```
+3. instal depedencies
+```bash
+npm install
+```
+4. jalankan `json server`
+```bash
+npm run serve-json
+```
+5. jalankan `development server`
 ```bash
 npm run dev
-# or
-yarn dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
